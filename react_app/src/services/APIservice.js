@@ -18,7 +18,7 @@ async function getCitiesByStateId(stateId) {
 }
 
 
-export default {
+export {
     getCountries,
     getStatesByCountryId,
     getCitiesByStateId

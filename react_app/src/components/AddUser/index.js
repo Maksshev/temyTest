@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import UserTable from "../UserTable";
 import {getCountries} from "../../services/APIservice";
-import AddUserFrom from "../AddUserForm";
+import AddUserForm from "../AddUserForm";
 
 class AddUser extends Component {
 
@@ -46,7 +46,7 @@ class AddUser extends Component {
 
         return (
             <div className="rl_container">
-                <AddUserFrom state={this.state} saveForm={this.saveForm}/>
+                <AddUserForm state={this.state} saveForm={this.saveForm}/>
                 <UserTable/>
             </div>
         )

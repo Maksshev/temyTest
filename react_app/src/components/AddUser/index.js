@@ -5,15 +5,40 @@ import {ValidationFail} from '../../formConfig/ErrorMessage';
 import {registerValidation} from "../../formConfig/validationConfig";
 import {initUserAddingValues} from "../../formConfig/init-values";
 import UserTable from "../UserTable";
+import FormSelect from "../../formConfig/FormSelect";
+import FormTextarea from '../../formConfig/FormTextarea';
+import userService from '../../services/addUserService';
 
 
 
 class AddUser extends Component {
+
+
+    state = {
+        formData: {
+            name: '',
+            email: '',
+            country: '',
+            state: '',
+            city: '',
+            phone: '',
+            address: '',
+            about: ''
+        }
+    };
+
+
+    componentDidMount() {
+        userService.getCitiesByStateId('1')
+            .then(data => console.log(data))
+    }
+
+
     render() {
         return (
             <div className="rl_container">
                 <Formik
-                    initialValues={initUserAddingValues}
+                    initialValues={this.state.formData}
                     onSubmit={this.submitForm}
                     validationSchema={registerValidation}
                 >
@@ -23,34 +48,22 @@ class AddUser extends Component {
                         <ErrorMessage name="name" render={ValidationFail}/>
                         <Field name="email" type="text" placeholder="*Enter email" component={FormField}/>
                         <ErrorMessage name="email" render={ValidationFail}/>
-                        <Field name="country" component={(props) => (
-                            <div className="form_element">
-                                <select
-                                    {...props.field}
-                                >
-                                    <option value="">*Choose coutry</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                        )}/>
-                        <ErrorMessage name="rating" render={ValidationFail}/>
-                        <Field name="state" type="text" placeholder="*Enter state" component={FormField}/>
+                        <Field name="country" component={FormSelect}/>
+                        <ErrorMessage name="country" render={ValidationFail}/>
+                        <Field name="state" component={FormSelect}/>
                         <ErrorMessage name="state" render={ValidationFail}/>
-                        <Field name="city" type="text" placeholder="*Enter city" component={FormField}/>
+                        <Field name="city" component={FormSelect}/>
                         <ErrorMessage name="city" render={ValidationFail}/>
                         <Field name="phone" type="text" placeholder="*Enter your phone" component={FormField}/>
                         <ErrorMessage name="phone" render={ValidationFail}/>
-                        <Field name="phone" type="text" placeholder="Enter your address" component={FormField}/>
-                        <ErrorMessage name="phone" render={ValidationFail}/>
-                        <Field name="about" type="text" placeholder="Tell about yourself" component={FormField}/>
+                        <Field name="address" type="text" placeholder="Enter address" component={FormField}/>
+                        <ErrorMessage name="address" render={ValidationFail}/>
+                        <Field name="about" placeholder="Tell us about yourself" component={FormTextarea}/>
                         <ErrorMessage name="about" render={ValidationFail}/>
                         <button type="submit">Add user</button>
                     </Form>
                 </Formik>
+
                 <UserTable/>
             </div>
         )

@@ -34,7 +34,7 @@ body {
     width: 80%;
 }
 
-.rl_container.article textarea {
+.rl_container textarea {
     background: #f7f7f7;
     border: 1px solid #ebebeb;
     border-radius: 3px;
@@ -98,4 +98,25 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+
+
+.rl_container select {
+    width: 260px;
+    background: #f7f7f7;
+    font-size: 20px;
+    border: 1px solid #e1e1e1;
+    color: #757575;
+    font-weight: 300;
+}
+
+textarea::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+button {
+    cursor: pointer;
 }

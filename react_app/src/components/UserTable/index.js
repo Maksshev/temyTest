@@ -31,10 +31,22 @@ const UserTable = ({users}) => {
                         Name
                     </th>
                     <th>
-                        Last name
+                        Email
                     </th>
                     <th>
-                        Email
+                        Phone
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        State
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Date
                     </th>
                 </tr>
                 </thead>

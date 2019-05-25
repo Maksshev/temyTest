@@ -1,3 +1,12 @@
+#Custom scripts added
+### `npm run install-all`
+Installs all dependencies in project's root and subdirectories.
+
+### `npm run dev`
+Starts json-server and react application, opens applications in a browser.
+
+
+
 # Temy Test Environment
 
 Basic environment of the test task includes mock-server with database for API calls and src folder for written code.

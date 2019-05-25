@@ -7,6 +7,7 @@ body {
 
 .rl_container {
     text-align: center;
+    margin-top: 50px;
 }
 
 .rl_container .form_element {
@@ -120,3 +121,23 @@ textarea::placeholder {
 button {
     cursor: pointer;
 }
+
+.form_element span {
+    color: #02bcd4;
+    position: relative;
+    right: 20px;
+}
+
+.edit_confirm {
+
+}
+
+
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        opacity: 0;
+    }
+}
+

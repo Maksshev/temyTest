@@ -3,10 +3,10 @@ import {getCitiesByStateId, getStatesByCountryId} from "../services/APIservice";
 function handleSelectStateChange(name, value, values, cb) {
     switch (name) {
         case 'country':
-            updateByCountry(value, values, cb)
+            void updateByCountry(value, values, cb)
             break
         case 'state':
-            updateByState(value, values, cb)
+            void updateByState(value, values, cb)
             break
         default:
             return null
@@ -21,6 +21,7 @@ async function updateByCountry(value, values, cb) {
                 ...values, state: ''
             },
             showStateSelect: true,
+            showAddedStatus: false,
             states: await getStatesByCountryId(value)
         })
     } else {
@@ -42,6 +43,7 @@ async function updateByState(value, values, cb) {
                 ...values, city: ''
             },
             showCitySelect: true,
+            showAddedStatus: false,
             cities: await getCitiesByStateId(value)
         })
     } else {

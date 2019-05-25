@@ -312,112 +312,28 @@
       "createdAt": 1543783746465
     },
     {
-      "name": "John Snow",
+      "name": "John  Snow",
       "email": "snow@gmail.com",
-      "phone_number": "9000000",
-      "address": null,
-      "about_me": null,
-      "country_id": "1",
-      "state_id": "6",
-      "city_id": "6",
-      "createdAt": 1558782434644,
-      "id": "_a4tUYX"
-    },
-    {
-      "name": "Sansa",
-      "email": "dskmf@gmail.com",
-      "phone_number": "3244543",
-      "address": null,
-      "about_me": null,
-      "country_id": "1",
-      "state_id": "2",
-      "city_id": "2",
-      "createdAt": 1558782513859,
-      "id": "evfCOHF"
-    },
-    {
-      "name": "Hey",
-      "email": "mksfnd@gmail.com",
-      "phone_number": "435435",
-      "address": null,
-      "about_me": null,
-      "country_id": "1",
-      "state_id": "4",
-      "city_id": "4",
-      "createdAt": 1558782594885,
-      "id": "bBB__qM"
-    },
-    {
-      "name": "Jubilee",
-      "email": "todo@gmail.com",
-      "phone_number": "456",
-      "address": "jenrfjknkjrf",
-      "about_me": "renfljrne lfnemwnklgmlkelgwnlrtg",
-      "country_id": "1",
-      "state_id": "4",
-      "city_id": "4",
-      "createdAt": 1558782683203,
-      "id": "SfiWL~w"
-    },
-    {
-      "name": "Best",
-      "email": "george@gmail.com",
-      "phone_number": "425345",
-      "address": "dmksfl",
-      "about_me": "dlszglfdngjsdnglndsklgn",
-      "country_id": "1",
-      "state_id": "10",
-      "city_id": "10",
-      "createdAt": 1558784380978,
-      "id": "L5~xVLx"
-    },
-    {
-      "name": "Toma",
-      "email": "dksfkn@gmail.com",
-      "phone_number": "5646457",
-      "address": "flsnfglndflg",
-      "about_me": "fnalrsjngjlkrnsdljkg",
-      "country_id": "1",
-      "state_id": "19",
-      "city_id": "19",
-      "createdAt": 1558784416916,
-      "id": "Oa7TPMe"
-    },
-    {
-      "name": "Smn",
-      "email": "smn@gmail.com",
-      "phone_number": "324234",
-      "address": null,
-      "about_me": null,
-      "country_id": "1",
-      "state_id": "5",
-      "city_id": "5",
-      "createdAt": 1558785161148,
-      "id": "lQfVYxO"
-    },
-    {
-      "name": "Taras",
-      "email": "dngsjn@gmail.com",
-      "phone_number": "4356536",
-      "address": "sjngkjg",
-      "about_me": "fdnlgljsdnfhljndsljhjldgsklhlkgnfhl",
-      "country_id": "1",
-      "state_id": "5",
-      "city_id": "5",
-      "createdAt": 1558786095827,
-      "id": "nTnuoto"
-    },
-    {
-      "name": "Bnm",
-      "email": "bnm@gmail.com",
-      "phone_number": "435436",
-      "address": "345436",
-      "about_me": "wfefw",
+      "phone_number": "3809595959",
+      "address": "Winterfall",
+      "about_me": "Smth",
       "country_id": "1",
       "state_id": "3",
       "city_id": "3",
-      "createdAt": 1558786752717,
-      "id": "fRdgg7~"
+      "createdAt": 1558793828855,
+      "id": "MfdvPBF"
+    },
+    {
+      "name": "Sansa Stark",
+      "email": "stark@gmail.com",
+      "phone_number": "45435",
+      "address": "Winterfall",
+      "about_me": "Smth else",
+      "country_id": "1",
+      "state_id": "4",
+      "city_id": "4",
+      "createdAt": 1558793870472,
+      "id": "nu1M_iA"
     }
   ]
 }

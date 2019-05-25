@@ -3,6 +3,7 @@ import UserTable from "../UserTable";
 import AddUserForm from "../AddUserForm";
 import {initFormValues} from "../../formConfig/formValues";
 import {getCountriesAndUsers} from "../../formConfig/formData";
+import UserAddedMessage from "../UserAddedMessage/UserAddedMessage";
 
 class AddUser extends Component {
 
@@ -10,9 +11,10 @@ class AddUser extends Component {
     state = initFormValues()
 
 
-    saveForm = (newState) => {
+    saveForm = newState => {
         this.setState(newState)
     }
+
 
 
 
@@ -22,11 +24,15 @@ class AddUser extends Component {
 
 
 
+
+
+
     render() {
 
         return (
 
             <div className="rl_container">
+                <UserAddedMessage showAddedStatus={this.state.showAddedStatus}/>
                 <AddUserForm formConfig={this.state} saveForm={this.saveForm}/>
                 <UserTable users={this.state.users}/>
             </div>

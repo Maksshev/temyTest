@@ -33,8 +33,8 @@ const FormSelect = (props) => {
         props.show ?
 
             <div className="form_element">
+                <span>*</span>
                 <select
-                    className="city-select"
                     {...props.field}
                     onChange={handleChange}
 

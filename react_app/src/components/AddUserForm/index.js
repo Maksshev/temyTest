@@ -32,9 +32,9 @@ const AddUserFrom = (props) => {
 
             <Form>
                 <h2>Add user</h2>
-                <Field name="name" type="text" placeholder="*Enter name" component={FormField}/>
+                <Field name="name" type="text" placeholder="Enter name" component={FormField}/>
                 <ErrorMessage name="name" render={ValidationFail}/>
-                <Field name="email" type="text" placeholder="*Enter email" component={FormField}/>
+                <Field name="email" type="text" placeholder="Enter email" component={FormField}/>
                 <ErrorMessage name="email" render={ValidationFail}/>
                 <Field name="country" saveForm={props.saveForm} component={FormSelect}
                        defaultOption="Choose country"
@@ -48,7 +48,7 @@ const AddUserFrom = (props) => {
                        defaultOption="Choose city"
                        show={props.formConfig.showCitySelect}/>
                 <ErrorMessage name="city" render={ValidationFail}/>
-                <Field name="phone" type="text" placeholder="*Enter your phone" component={FormField}/>
+                <Field name="phone" type="text" placeholder="Enter your phone" component={FormField}/>
                 <ErrorMessage name="phone" render={ValidationFail}/>
                 <Field name="address" type="text" placeholder="Enter address" component={FormField}/>
                 <ErrorMessage name="address" render={ValidationFail}/>

@@ -15,6 +15,7 @@ const initFormValues = () => {
         showCountrySelect: true,
         showStateSelect: false,
         showCitySelect: false,
+        showAddedStatus: false,
         countries: null,
         cities: null,
         states: null,
@@ -40,6 +41,7 @@ const resetFormValues = async () =>{
         showCountrySelect: true,
         showStateSelect: false,
         showCitySelect: false,
+        showAddedStatus: true,
         cities: null,
         states: null,
         users: await getTransformedUsersData()

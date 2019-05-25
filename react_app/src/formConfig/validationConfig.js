@@ -2,12 +2,12 @@ import * as Yup from 'yup';
 
 
 export const registerValidation = Yup.object().shape({
-    name: Yup.string().matches(/[a-zA-Z]/, {
-        message: 'Name must contain letters only',
+    name: Yup.string().matches(/^[a-zA-Z\s]+$/, {
+        message: 'Name must contain latin letters only',
         excludeEmptyString: true
     }).required('Name is required'),
     email: Yup.string().email('Please, enter valid email').required('Email is required'),
-    phone: Yup.string().matches(/^[0-9]/, {
+    phone: Yup.string().matches(/^[0-9]+$/, {
         message: 'Phone must contain numbers only'
     }).required('Phone number is required'),
     country: Yup.string().required('Country is required'),

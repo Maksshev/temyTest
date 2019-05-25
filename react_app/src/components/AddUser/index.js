@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserTable from "../UserTable";
-import {getCountries} from "../../services/APIservice";
+import {getCountries, getTransformedUsersData, getUsers} from "../../services/APIservice";
 import AddUserForm from "../AddUserForm";
 
 class AddUser extends Component {
@@ -38,6 +38,8 @@ class AddUser extends Component {
                     countries
                 })
             })
+
+        getTransformedUsersData().then(data => console.log(data))
     }
 
 

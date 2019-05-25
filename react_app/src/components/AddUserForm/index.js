@@ -5,13 +5,56 @@ import {ValidationFail} from "../ErrorMessage";
 import FormSelect from "../FormSelect";
 import {registerValidation} from "../../formConfig/validationConfig";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {addUser, getCountries} from "../../services/APIservice";
+import {getTransformedUsersData} from "../../services/APIservice";
 
 
 const AddUserFrom = (props) => {
 
-    const submitForm = (e) => {
-        e.preventDefault()
-        console.log('Submitted')
+
+    const submitForm = (values, actions) => {
+
+
+        const dataToSubmit = {
+            "name": values.name,
+            "email": values.email,
+            "phone_number": values.phone,
+            "address": values.address ? values.address : null,
+            "about_me": values.about ? values.about : null,
+            "country_id": values.country,
+            "state_id": values.state,
+            "city_id": values.city,
+        }
+
+        addUser(dataToSubmit).then(async res => {
+
+            if (res.statusText === 'Created') {
+
+                props.saveForm({
+                    formData: {
+                        name: '',
+                        email: '',
+                        country: '',
+                        state: '',
+                        city: '',
+                        phone: '',
+                        address: '',
+                        about: ''
+                    },
+                    showCountrySelect: true,
+                    showStateSelect: false,
+                    showCitySelect: false,
+                    cities: null,
+                    states: null,
+                    users: await getTransformedUsersData()
+                })
+
+                actions.resetForm()
+
+
+            }
+        })
+
     }
 
 

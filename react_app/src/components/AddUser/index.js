@@ -22,7 +22,9 @@ class AddUser extends Component {
         showCitySelect: false,
         countries: null,
         cities: null,
-        states: null
+        states: null,
+        users: null,
+        defaultSelect: true
     };
 
 
@@ -31,26 +33,46 @@ class AddUser extends Component {
     }
 
 
+    updateCountries = () => {
+        getCountries().then(countries => {
+            this.setState({
+                countries
+            })
+        })
+
+        return null
+    }
+
+
+
+
     componentDidMount() {
         getCountries()
-            .then((countries) => {
-                this.setState({
-                    countries
-                })
+            .then(countries => {
+                getTransformedUsersData()
+                    .then(users => {
+                        this.setState({
+                            countries,
+                            users
+                        })
+                    })
             })
 
-        getTransformedUsersData().then(data => console.log(data))
     }
 
 
     render() {
 
+        console.log('rendered');
+
 
         return (
+
             <div className="rl_container">
                 <AddUserForm state={this.state} saveForm={this.saveForm}/>
-                <UserTable/>
+                <UserTable users={this.state.users}/>
             </div>
+
         )
     }
 }

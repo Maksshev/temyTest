@@ -41,13 +41,18 @@ async function getTransformedUsersData() {
     const users = await getUsers()
 
     const usersPromises = users.map(async user => {
-        user.country = await getCountryById(user['country_id'])
-        user.state = await getStateById(user['state_id'])
-        user.city = await getCityById(user['city_id'])
+        user.country = (await getCountryById(user['country_id']))[0].name
+        user.state = (await getStateById(user['state_id']))[0].name
+        user.city = (await getCityById(user['city_id']))[0].name
         return user
     })
 
     return await Promise.all(usersPromises)
+}
+
+
+async function addUser(userData) {
+    return await axios.post('/users', userData)
 }
 
 
@@ -57,5 +62,6 @@ export {
     getStatesByCountryId,
     getCitiesByStateId,
     getTransformedUsersData,
-    getUsers
+    getUsers,
+    addUser
 }

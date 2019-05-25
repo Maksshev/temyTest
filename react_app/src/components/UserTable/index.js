@@ -3,14 +3,14 @@ import React from 'react';
 const showUsers = (users) => {
     if (users) {
         return users.map(user => (
-            <tr key={user._id}>
+            <tr key={user.id}>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.phone}</td>
+                <td>{user['phone_number']}</td>
                 <td>{user.country}</td>
                 <td>{user.state}</td>
-                <td>{user.cityName}</td>
-                <td>{user.date}</td>
+                <td>{user.city}</td>
+                <td>{new Date(user.createdAt).toDateString()}</td>
             </tr>
         ))
     }

@@ -4,6 +4,7 @@ import {handleSelectStateChange} from "../../formConfig/selectStateChange";
 
 const FormSelect = (props) => {
 
+
     const showOptions = (optionsArr) => (
 
         optionsArr ?
@@ -34,8 +35,9 @@ const FormSelect = (props) => {
             <div className="form_element">
                 <select
                     className="city-select"
+                    {...props.field}
                     onChange={handleChange}
-                    name={props.field.name}
+
                 >
                     <option value="">Choose coutry</option>
                     {showOptions(props.options)}

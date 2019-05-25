@@ -1,31 +1,13 @@
 import React, {Component} from 'react';
 import UserTable from "../UserTable";
-import {getCountries, getTransformedUsersData, getUsers} from "../../services/APIservice";
 import AddUserForm from "../AddUserForm";
+import {initFormValues} from "../../formConfig/formValues";
+import {getCountriesAndUsers} from "../../formConfig/formData";
 
 class AddUser extends Component {
 
 
-    state = {
-        formData: {
-            name: '',
-            email: '',
-            country: '',
-            state: '',
-            city: '',
-            phone: '',
-            address: '',
-            about: ''
-        },
-        showCountrySelect: true,
-        showStateSelect: false,
-        showCitySelect: false,
-        countries: null,
-        cities: null,
-        states: null,
-        users: null,
-        defaultSelect: true
-    };
+    state = initFormValues()
 
 
     saveForm = (newState) => {
@@ -33,43 +15,19 @@ class AddUser extends Component {
     }
 
 
-    updateCountries = () => {
-        getCountries().then(countries => {
-            this.setState({
-                countries
-            })
-        })
-
-        return null
-    }
-
-
-
 
     componentDidMount() {
-        getCountries()
-            .then(countries => {
-                getTransformedUsersData()
-                    .then(users => {
-                        this.setState({
-                            countries,
-                            users
-                        })
-                    })
-            })
-
+        void getCountriesAndUsers(this)
     }
+
 
 
     render() {
 
-        console.log('rendered');
-
-
         return (
 
             <div className="rl_container">
-                <AddUserForm state={this.state} saveForm={this.saveForm}/>
+                <AddUserForm formConfig={this.state} saveForm={this.saveForm}/>
                 <UserTable users={this.state.users}/>
             </div>
 

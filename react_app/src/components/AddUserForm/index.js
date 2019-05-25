@@ -5,62 +5,27 @@ import {ValidationFail} from "../ErrorMessage";
 import FormSelect from "../FormSelect";
 import {registerValidation} from "../../formConfig/validationConfig";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
-import {addUser, getCountries} from "../../services/APIservice";
-import {getTransformedUsersData} from "../../services/APIservice";
+import {addUser} from "../../services/APIservice";
+import {submitFormValues} from "../../formConfig/formValues";
+import {checkSubmitAndReset} from "../../formConfig/formSubmitCheck";
 
 
 const AddUserFrom = (props) => {
 
 
+
+
     const submitForm = (values, actions) => {
 
-
-        const dataToSubmit = {
-            "name": values.name,
-            "email": values.email,
-            "phone_number": values.phone,
-            "address": values.address ? values.address : null,
-            "about_me": values.about ? values.about : null,
-            "country_id": values.country,
-            "state_id": values.state,
-            "city_id": values.city,
-        }
-
-        addUser(dataToSubmit).then(async res => {
-
-            if (res.statusText === 'Created') {
-
-                props.saveForm({
-                    formData: {
-                        name: '',
-                        email: '',
-                        country: '',
-                        state: '',
-                        city: '',
-                        phone: '',
-                        address: '',
-                        about: ''
-                    },
-                    showCountrySelect: true,
-                    showStateSelect: false,
-                    showCitySelect: false,
-                    cities: null,
-                    states: null,
-                    users: await getTransformedUsersData()
-                })
-
-                actions.resetForm()
-
-
-            }
-        })
+        addUser(submitFormValues(values))
+            .then(responce => checkSubmitAndReset(responce, actions, props.saveForm))
 
     }
 
 
     return (
         <Formik
-            initialValues={props.state.formData}
+            initialValues={props.formConfig.formData}
             onSubmit={submitForm}
             validationSchema={registerValidation}
         >
@@ -72,13 +37,16 @@ const AddUserFrom = (props) => {
                 <Field name="email" type="text" placeholder="*Enter email" component={FormField}/>
                 <ErrorMessage name="email" render={ValidationFail}/>
                 <Field name="country" saveForm={props.saveForm} component={FormSelect}
-                       options={props.state.countries} show={props.state.showCountrySelect}/>
+                       defaultOption="Choose country"
+                       options={props.formConfig.countries} show={props.formConfig.showCountrySelect}/>
                 <ErrorMessage name="country" render={ValidationFail}/>
-                <Field name="state" saveForm={props.saveForm} component={FormSelect} options={props.state.states}
-                       show={props.state.showStateSelect}/>
+                <Field name="state" saveForm={props.saveForm} component={FormSelect} options={props.formConfig.states}
+                       defaultOption="Choose state"
+                       show={props.formConfig.showStateSelect}/>
                 <ErrorMessage name="state" render={ValidationFail}/>
-                <Field name="city" saveForm={props.saveForm} component={FormSelect} options={props.state.cities}
-                       show={props.state.showCitySelect}/>
+                <Field name="city" saveForm={props.saveForm} component={FormSelect} options={props.formConfig.cities}
+                       defaultOption="Choose city"
+                       show={props.formConfig.showCitySelect}/>
                 <ErrorMessage name="city" render={ValidationFail}/>
                 <Field name="phone" type="text" placeholder="*Enter your phone" component={FormField}/>
                 <ErrorMessage name="phone" render={ValidationFail}/>

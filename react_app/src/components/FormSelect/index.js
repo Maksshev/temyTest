@@ -39,7 +39,7 @@ const FormSelect = (props) => {
                     onChange={handleChange}
 
                 >
-                    <option value="">Choose coutry</option>
+                    <option value="">{props.defaultOption}</option>
                     {showOptions(props.options)}
                 </select>
             </div>

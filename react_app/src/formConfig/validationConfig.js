@@ -13,5 +13,5 @@ export const registerValidation = Yup.object().shape({
     country: Yup.string().required('Country is required'),
     state: Yup.string().required('State is required'),
     city: Yup.string().required('City is required'),
-    about: Yup.string().max(500, 'Text must not exceed 500 charachters')
+    about: Yup.string().max(500, 'Text must not exceed 500 characters')
 });
